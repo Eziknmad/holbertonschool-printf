@@ -1,25 +1,15 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include <stdarg.h>
 #include <unistd.h>
-#include <stddef.h>
+#include <stdarg.h>
 
-/**
-* _printf - produces output according to a format
-* @format: format string containning characters and conversions specifiers
-*
-* Return: number of characters printed (exclude the terminating null byte),
-* or -1 on failure ( for example, if format is NULL).
-*/
 int _printf(const char *format, ...);
-
-/**
- * _putchar - writes a single character to stdout
- * @c: character to print
- *
- * Return: 1 on success, or -1 on error.
- */
-int _putchar(char c);
+int write_char(char c);
+int print_string(char *s);
+int print_char_arg(va_list ap);
+int print_number(int n);
+int handle_format(const char *format, int *i, va_list ap);
 
 #endif
+
