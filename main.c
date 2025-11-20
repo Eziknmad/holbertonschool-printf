@@ -1,26 +1,37 @@
+#include <stdio.h>
 #include "main.h"
-#include <limits.h>
 
 /**
- * main - Entry point
+ * main - tests the _printf implementation
  *
- * Return: Always 0
+ * Return: 0 on success
  */
 int main(void)
 {
-	int len;
+        int len1, len2;
 
-	len = _printf("Let's try to printf a simple sentence.\n");
-	_printf("Length:[%d, %i]\n", len, len);
-	_printf("Negative:[%i]\n", -762534);
-	_printf("Character:[%c]\n", 'H');
-	_printf("String:[%s]\n", "I am a string !");
-	_printf("Percent:[%%]\n");
-	len = _printf("Unknown:[%r]\n");
-	_printf("Length: %d\n", len);
-	_printf("Zero: %d\n", 0);
-	_printf("INT_MIN: %d\n", INT_MIN);
-	_printf("INT_MAX: %i\n", INT_MAX);
+        len1 = _printf("Char:[%c]\n", 'H');
+        len2 = printf("Char:[%c]\n", 'H');
+        _printf("Len1: [%d]\n", len1);
+        printf("Len2: [%d]\n", len2);
 
-	return (0);
+        len1 = _printf("String:[%s]\n", "Hello, world!");
+        len2 = printf("String:[%s]\n", "Hello, world!");
+        _printf("Len1: [%d]\n", len1);
+        printf("Len2: [%d]\n", len2);
+
+        len1 = _printf("Percent:[%%]\n");
+        len2 = printf("Percent:[%%]\n");
+        _printf("Len1: [%d]\n", len1);
+        printf("Len2: [%d]\n", len2);
+
+        /* Unknown specifier demo */
+        _printf("Unknown:[%r]\n");
+        printf("Unknown:[%r]\n");
+
+        /* NULL string check */
+        _printf("Null string:[%s]\n", (char *)NULL);
+        printf("Null string:[%s]\n", (char *)NULL);
+
+        return (0);
 }
