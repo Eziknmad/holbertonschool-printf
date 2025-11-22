@@ -1,0 +1,67 @@
+.TH _printf 3 "2025" "Holberton School" "Library Functions Manual"
+
+.SH NAME
+_printf \- custom implementation of the C standard printf function
+
+.SH SYNOPSIS
+.nf
+#include "main.h"
+int _printf(const char *format, ...);
+.fi
+
+.SH DESCRIPTION
+_printf() is a custom recreation of the standard C printf function.
+It formats and prints output according to a format string followed
+by a variable number of arguments.
+
+The format string contains ordinary characters, which are printed
+as-is, and conversion specifiers introduced by the percent '%' sign.
+
+Supported conversion specifiers include:
+
+.TP
+.B %c
+Prints a single character.
+
+.TP
+.B %s
+Prints a null-terminated string.
+
+.TP
+.B %%
+Prints a literal percent sign.
+
+.TP
+.B %d, %i
+Prints a signed integer in base 10.
+
+Additional helper functions located across the project branches
+(main, Kevin, and Fabiola) handle parsing, specifier processing,
+and buffered output.
+
+.SH RETURN VALUE
+On success, _printf() returns the number of characters printed.
+On failure, it returns -1.
+
+.SH EXAMPLES
+Example usage:
+
+.nf
+_printf("Hello %s! You are %d years old.\n", "Kevin", 25);
+.fi
+
+.SH NOTES
+This implementation does not yet support all standard printf
+specifiers such as %f, %p, %x, or width/precision modifiers.
+Only the specifiers implemented within this repository are
+guaranteed to work.
+
+.SH SEE ALSO
+printf(3), putchar(3)
+
+.SH BUGS
+Please report any issues through the project repository or directly
+to the authors.
+
+.SH AUTHORS
+Kevin Galarza Arzon & Fabiola N Burgos Rodriguez
